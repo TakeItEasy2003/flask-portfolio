@@ -61,21 +61,23 @@ Press Shift + A anywhere to quickly open the admin login page.
 
 flask_portfolio/
 ├── app.py
-├── templates/
-│   ├── base.html
-│   ├── home.html
-│   ├── about.html
-│   ├── projects.html
-│   ├── skills.html
-│   ├── contact.html
-│   ├── admin_login.html
-│   └── messages.html
-├── static/
-│   ├── css/style.css
-│   └── js/script.js
 ├── requirements.txt
-├── Procfile (optional for deployment)
-└── README.md
+├── Procfile
+├── README.md
+├── templates/
+│ ├── base.html
+│ ├── home.html
+│ ├── about.html
+│ ├── projects.html
+│ ├── skills.html
+│ ├── contact.html
+│ ├── admin_login.html
+│ └── messages.html
+├── static/
+│ ├── css/
+│ │ └── style.css
+│ └── js/
+│ └── script.js
 
 ## Deployment
 
