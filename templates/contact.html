@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Contact{% endblock %}
+{% block content %}
+<h1>Contact Me</h1>
+<p>Have any questions or want to connect? Fill out the form below:</p>
+<form method="POST" action="/contact">
+    <input type="text" name="name" placeholder="Your Name" required><br>
+    <input type="email" name="email" placeholder="Your Email" required><br>
+    <textarea name="message" placeholder="Your Message" required></textarea><br>
+    <button type="submit">Send Message</button>
+</form>
+<p>You can also email me directly at: <strong>akhil@example.com</strong></p>
+{% endblock %}
