@@ -2,6 +2,9 @@
 
 This is a simple portfolio website built using Flask, PostgreSQL, HTML, CSS, and JavaScript. It was created as part of a database assignment project.
 
+**Live Site:** [https://flask-portfolio-tus6.onrender.com/messages](https://flask-portfolio-tus6.onrender.com/messages)  
+**GitHub Repo:** [https://github.com/TakeItEasy2003/flask-portfolio](https://github.com/TakeItEasy2003/flask-portfolio)
+
 ## Features
 
 - Home, About, Projects, Skills, and Contact pages
