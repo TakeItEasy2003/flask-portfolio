@@ -60,15 +60,15 @@ Press Shift + A anywhere to quickly open the admin login page.
 ## Project Structure
 
 flask_portfolio/
-├── app.py
-├── requirements.txt
-├── Procfile
-├── README.md
-├── templates/
-│ ├── base.html
-│ ├── home.html
-│ ├── about.html
-│ ├── projects.html
+├─ app.py
+├─ requirements.txt
+├─ Procfile
+├─ README.md
+├─ templates/
+   ├── base.html
+   ├── home.html
+   ├── about.html
+   ├── projects.html
 │ ├── skills.html
 │ ├── contact.html
 │ ├── admin_login.html
