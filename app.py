@@ -1,11 +1,17 @@
 from flask import Flask, render_template, request, redirect, session
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 app = Flask(__name__)
-app.secret_key = '1234' 
+app.secret_key = '1234'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://akhilajoy@localhost/portfolio'
+# Use DATABASE_URL from environment
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
+    'DATABASE_URL',
+    'postgresql://akhilajoy@localhost/portfolio'
+)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 
 db = SQLAlchemy(app)
 
@@ -36,7 +42,7 @@ def projects():
 def skills():
     return render_template('skills.html')
 
-# Contact page - GET shows form, POST handles submission
+# Contact page - GET and POST
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
@@ -49,7 +55,7 @@ def contact():
         return redirect('/')
     return render_template('contact.html')
 
-# Admin login page
+# Admin login
 @app.route('/admin-login', methods=['GET', 'POST'])
 def admin_login():
     if request.method == 'POST':
@@ -62,7 +68,7 @@ def admin_login():
             return "Access Denied. Invalid credentials."
     return render_template('admin_login.html')
 
-# Logout route
+# Logout
 @app.route('/logout')
 def logout():
     session.pop('admin', None)
@@ -76,16 +82,15 @@ def messages():
     all_messages = Message.query.all()
     return render_template('messages.html', messages=all_messages)
 
+# Delete a message
 @app.route('/delete/<int:id>')
 def delete_message(id):
     if not session.get('admin'):
         return redirect('/admin-login')
-    
     msg_to_delete = Message.query.get_or_404(id)
     db.session.delete(msg_to_delete)
     db.session.commit()
     return redirect('/messages')
-
 
 if __name__ == '__main__':
     app.run(debug=True)
